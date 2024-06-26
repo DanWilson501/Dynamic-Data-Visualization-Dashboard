@@ -1,0 +1,23 @@
+body {
+    font: sans-serif;
+    padding: 10px;
+  }
+  
+  #filters {
+    margin-bottom: 10px;
+  }
+  
+  #chart {
+    width: 600px;
+    height: 600px;
+  }
+  
+  .tooltip {
+    position: absolute;
+    background-color: pink;
+    border: 1px solid black;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 12px;
+  }
+  
