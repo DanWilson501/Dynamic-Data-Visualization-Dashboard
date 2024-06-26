@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Performance Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Stock Performance Dashboard</h1>
+  <div id="filters">
+    <label for="stockFilter">Select Stock:</label>
+    <select id="stockFilter">
+      <option value="">All</option>
+    </select>
+
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate">
+    
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate">
+  </div>
+  <div id="chart"></div>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="example.js"></script>
+</body>
+</html>
