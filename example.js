@@ -53,5 +53,17 @@ d3.csv("data/mock_stock_data.csv").then(data => {
   
     for (let [key, value] of nestedData) {
       svg.append("path").datum(value).attr("fill", "none").attr("stroke", color(key)).attr("stroke-width", 1.5).attr("d", line);
+
+      for (let [key, value] of nestedData) {
+        svg.append("path").datum(value).attr("fill", "none").attr("stroke", color(key)).attr("stroke-width", 1.5).attr("d", line);
+    
+        svg.selectAll(`.circle-${key}`).data(value).enter().append("circle")
+          .attr("r", 4).attr("cx", d => x(d.date)).attr("cy", d => y(d.price)).attr("fill", color(key))
+          .on("mouseover", (event, d) => tooltip.html(`Stock: ${d.stock}<br>Date: ${d.date.toISOString().split('T')[0]}<br>Price: $${d.price}`).style("visibility", "visible"))
+          .on("mousemove", event => tooltip.style("top", `${event.pageY - 10}px`).style("left", `${event.pageX + 10}px`))
+          .on("mouseout", () => tooltip.style("visibility", "hidden"));
+      }
+    
+      let tooltip = d3.select("body").append("div").style("position", "absolute").style("visibility", "hidden").attr("class", "tooltip");
     }
 }
